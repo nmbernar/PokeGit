@@ -7,7 +7,7 @@ public class Dragon extends Type{
 		this.setStrengths(new Element[]{Element.DRAGON});
 		this.setWeaknesses(new Element[]{Element.ICE, 
 				Element.DRAGON, Element.FAIRY});
-		this.setCantAffect(new Element[]{Element.DRAGON});
+		this.setCantAffect(new Element[]{Element.FAIRY});
 	}
 
 	@Override

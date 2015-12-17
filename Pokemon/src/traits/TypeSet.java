@@ -6,7 +6,7 @@ import elements.*;
 
 public class TypeSet {
 
-	private ArrayList<Enum<Element>> types = new ArrayList<Enum<Element>>();
+	private ArrayList<Element> types = new ArrayList<Element>();
 
 	/**
 	 * Initializes set with no types
@@ -20,7 +20,7 @@ public class TypeSet {
 	 * 
 	 * @param type
 	 */
-	public TypeSet(Enum<Element> type) {
+	public TypeSet(Element type) {
 		types.add(type);
 	}
 
@@ -29,8 +29,8 @@ public class TypeSet {
 	 * 
 	 * @param types
 	 */
-	public TypeSet(List<Enum<Element>> types) {
-		this.types = (ArrayList<Enum<Element>>) types;
+	public TypeSet(List<Element> types) {
+		this.types = (ArrayList<Element>) types;
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class TypeSet {
 	 * 
 	 * @param type
 	 */
-	public void addType(Enum<Element> type) {
+	public void addType(Element type) {
 		if (!typeInSet(type)) {
 			this.types.add(type);
 		}

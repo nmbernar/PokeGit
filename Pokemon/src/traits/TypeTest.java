@@ -3,32 +3,28 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import elements.*;
-
 
 public class TypeTest {
 
 	@Test
 	public void fireTest() {
-		Fire typeA = new Fire();
-		assertTrue(typeA.weakAgainst(new Ground().getElement()));
-		assertFalse(typeA.strongAgainst(new Ghost().getElement()));
+		Element fire = Element.FIRE;
+		assertTrue(fire.getStrengths().getTypes().contains(Element.ICE));
+		assertFalse(fire.getWeaknesses().getTypes().contains(Element.DARK));
 	}
 	
-	public void waterTest(){
-		Water typeA = new Water();
-		assertTrue(typeA.strongAgainst(new Rock().getElement()));
-		assertTrue(typeA.weakAgainst(new Grass().getElement()));
-	}
 	
-	public void fairyTest(){
-		Fairy typeA = new Fairy();
-		assertTrue(typeA.unaffectedBy(new Dragon().getElement()));
-	}
-	
-	public void normalTest(){
-		Normal typeA = new Normal();
-		assertTrue(typeA.cantAffect(new Ghost().getElement()));
+	public void ghostTest(){
+		Element ghost = Element.GHOST;
+		assertTrue(ghost.getStrengths().getTypes().contains(Element.PSYCHIC));
+		assertTrue(ghost.getUnaffected().getTypes().contains(Element.NORMAL));
+		assertFalse(ghost.getWeaknesses().getTypes().contains(Element.FIGHTING));
 	}
 
+	public void psychicTest(){
+		Element psychic = Element.PSYCHIC;
+		assertTrue(psychic.getStrengths().getTypes().contains(Element.BUG));
+		assertFalse(psychic.getWeaknesses().getTypes().contains(Element.WATER));
+		assertTrue(psychic.getCantAffect().getTypes().contains(Element.DARK));
+	}
 }

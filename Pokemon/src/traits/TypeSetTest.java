@@ -23,7 +23,7 @@ public class TypeSetTest {
 		test.add(new Fire());
 		test.add(new Water());
 		test.add(new Ground());
-		TypeSet FireWaterGround = new TypeSet(new ArrayList<Enum<Element>>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
+		TypeSet FireWaterGround = new TypeSet(new ArrayList<Element>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
 		assertFalse(FireWaterGround.typeInSet(Element.GRASS));
 	}
 	
