@@ -1,5 +1,8 @@
 package traits;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Pokemon {
 	private String name;
 	private int dexNumber;
@@ -140,6 +143,8 @@ public class Pokemon {
 	public void setSpd(int spd) {
 		this.spd = spd;
 	}
+	
+
 	
 	
 }

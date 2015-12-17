@@ -30,38 +30,38 @@ public abstract class Type {
 		this.strengths = strengths;
 	}
 
-	public void setUnaffected(Types[] unaffected) {
-		this.unaffected = unaffected;
+	public void setUnaffected(Types[] types) {
+		this.unaffected = types;
 	}
 
 	public void setCantAffect(Types[] cantaffect) {
 		this.cantaffect = cantaffect;
 	}
 
-	public boolean weakAgainst(Types type) {
+	public boolean weakAgainst(Enum<Types> enum1) {
 		for (Types i : this.weaknesses)
-			if (type.equals(i))
+			if (enum1.equals(i))
 				return true;
 		return false;
 	}
 
-	public boolean strongAgainst(Types type) {
+	public boolean strongAgainst(Enum<Types> enum1) {
 		for (Types i : this.strengths)
-			if (type.equals(i))
+			if (enum1.equals(i))
 				return true;
 		return false;
 	}
 
-	public boolean unaffectedBy(Types type) {
+	public boolean unaffectedBy(Enum<Types> enum1) {
 		for (Types i : this.unaffected)
-			if (type.equals(i))
+			if (enum1.equals(i))
 				return true;
 		return false;
 	}
 
-	public boolean cantAffect(Types type) {
+	public boolean cantAffect(Enum<Types> enum1) {
 		for (Types i : this.cantaffect)
-			if (type.equals(i))
+			if (enum1.equals(i))
 				return true;
 		return false;
 	}
