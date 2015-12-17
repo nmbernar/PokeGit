@@ -1,18 +1,18 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Poison extends Type{
 	public Poison(){
-		this.setStrengths(new Types[]{Types.GRASS, 
-				Types.FAIRY});
-		this.setWeaknesses(new Types[]{Types.GROUND, 
-				Types.PSYCHIC});
-		this.setCantAffect(new Types[]{Types.STEEL});
+		this.setStrengths(new Element[]{Element.GRASS, 
+				Element.FAIRY});
+		this.setWeaknesses(new Element[]{Element.GROUND, 
+				Element.PSYCHIC});
+		this.setCantAffect(new Element[]{Element.STEEL});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.POISON;
+	public Enum<Element> getElement() {
+		return Element.POISON;
 	}
 }

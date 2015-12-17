@@ -1,16 +1,16 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Normal extends Type{
 	public Normal(){
 		this.setStrengths(null);
-		this.setWeaknesses(new Types[]{Types.FIGHTING});
-		this.setCantAffect(new Types[]{Types.GHOST});
+		this.setWeaknesses(new Element[]{Element.FIGHTING});
+		this.setCantAffect(new Element[]{Element.GHOST});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.NORMAL;
+	public Enum<Element> getElement() {
+		return Element.NORMAL;
 	}
 }

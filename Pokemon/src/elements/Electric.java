@@ -1,17 +1,17 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Electric extends Type{
 	public Electric(){
-		this.setStrengths(new Types[]{Types.WATER, 
-				Types.FLYING});
-		this.setWeaknesses(new Types[]{Types.GROUND});
-		this.setCantAffect(new Types[]{Types.GROUND});
+		this.setStrengths(new Element[]{Element.WATER, 
+				Element.FLYING});
+		this.setWeaknesses(new Element[]{Element.GROUND});
+		this.setCantAffect(new Element[]{Element.GROUND});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.ELECTRIC;
+	public Enum<Element> getElement() {
+		return Element.ELECTRIC;
 	}
 }

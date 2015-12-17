@@ -1,20 +1,20 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Ground extends Type{
 	public Ground(){
-		this.setStrengths(new Types[]{Types.FIRE,
-				Types.ELECTRIC, Types.POISON, 
-				Types.ROCK, Types.STEEL});
-		this.setWeaknesses(new Types[]{Types.WATER,
-				Types.GRASS, Types.ICE});
-		this.setUnaffected(new Types[]{Types.ELECTRIC});
-		this.setCantAffect(new Types[]{Types.FLYING});
+		this.setStrengths(new Element[]{Element.FIRE,
+				Element.ELECTRIC, Element.POISON, 
+				Element.ROCK, Element.STEEL});
+		this.setWeaknesses(new Element[]{Element.WATER,
+				Element.GRASS, Element.ICE});
+		this.setUnaffected(new Element[]{Element.ELECTRIC});
+		this.setCantAffect(new Element[]{Element.FLYING});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.GROUND;
+	public Enum<Element> getElement() {
+		return Element.GROUND;
 	}
 }

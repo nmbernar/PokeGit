@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import traits.Pokemon;
 import traits.Type;
 import traits.TypeSet;
-import traits.Types;
+import traits.Element;
 
 public class SetTest {
 
@@ -24,7 +24,7 @@ public class SetTest {
 		
 		TypeSet beta = db.getStrengthsFromPokeTypes(alpha);
 		
-		for(Enum<Types> d : beta.getTypes())
+		for(Enum<Element> d : beta.getTypes())
 			System.out.println(d);
 	}
 

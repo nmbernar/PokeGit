@@ -1,5 +1,5 @@
 package traits;
 
-public enum Types {
+public enum Element {
 	FIRE, WATER, GRASS, ELECTRIC, FLYING, ROCK, GHOST, BUG, NORMAL, STEEL, FIGHTING, DRAGON, FAIRY, DARK, ICE, GROUND, PSYCHIC, POISON
 }

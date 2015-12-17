@@ -1,17 +1,17 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Bug extends Type{
 	public Bug(){
-		this.setStrengths(new Types[]{Types.GRASS, 
-				Types.PSYCHIC, Types.DARK});
-		this.setWeaknesses(new Types[]{Types.FIRE, 
-				Types.FLYING, Types.ROCK});
+		this.setStrengths(new Element[]{Element.GRASS, 
+				Element.PSYCHIC, Element.DARK});
+		this.setWeaknesses(new Element[]{Element.FIRE, 
+				Element.FLYING, Element.ROCK});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.BUG;
+	public Enum<Element> getElement() {
+		return Element.BUG;
 	}
 }

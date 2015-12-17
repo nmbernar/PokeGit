@@ -1,18 +1,18 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Flying extends Type{
 	public Flying(){
-		this.setStrengths(new Types[]{Types.GRASS, 
-				Types.FIGHTING, Types.BUG});
-		this.setWeaknesses(new Types[]{Types.ELECTRIC, 
-				Types.ICE, Types.ROCK});
-		this.setUnaffected(new Types[]{Types.GROUND});
+		this.setStrengths(new Element[]{Element.GRASS, 
+				Element.FIGHTING, Element.BUG});
+		this.setWeaknesses(new Element[]{Element.ELECTRIC, 
+				Element.ICE, Element.ROCK});
+		this.setUnaffected(new Element[]{Element.GROUND});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.FLYING;
+	public Enum<Element> getElement() {
+		return Element.FLYING;
 	}
 }
