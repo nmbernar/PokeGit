@@ -13,8 +13,8 @@ public class TypeSetTest {
 
 	@Test
 	public void typeInSetTest() {
-		TypeSet onlyFire = new TypeSet(Types.FIRE);
-		assertTrue(onlyFire.typeInSet(Types.FIRE));
+		TypeSet onlyFire = new TypeSet(Element.FIRE);
+		assertTrue(onlyFire.typeInSet(Element.FIRE));
 	}
 	
 	@Test
@@ -23,36 +23,36 @@ public class TypeSetTest {
 		test.add(new Fire());
 		test.add(new Water());
 		test.add(new Ground());
-		TypeSet FireWaterGround = new TypeSet(new ArrayList<Enum<Types>>(Arrays.asList(Types.FIRE, Types.WATER, Types.GROUND)));
-		assertFalse(FireWaterGround.typeInSet(Types.GRASS));
+		TypeSet FireWaterGround = new TypeSet(new ArrayList<Element>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
+		assertFalse(FireWaterGround.typeInSet(Element.GRASS));
 	}
 	
 	@Test
 	public void addTypeTest(){
 		TypeSet empty = new TypeSet();
-		empty.addType(Types.GRASS);
-		assertTrue(empty.getTypes().contains(Types.GRASS));
+		empty.addType(Element.GRASS);
+		assertTrue(empty.getTypes().contains(Element.GRASS));
 		
-		empty.addType(Types.DARK);
-		assertTrue(empty.getTypes().contains(Types.GRASS));
-		assertTrue(empty.getTypes().contains(Types.DARK));
+		empty.addType(Element.DARK);
+		assertTrue(empty.getTypes().contains(Element.GRASS));
+		assertTrue(empty.getTypes().contains(Element.DARK));
 	}
 	
 	@Test
 	public void getTypeFromElementTest(){
 		TypeSet empty = new TypeSet();
-		assertEquals(empty.getTypeFromElement(Types.DRAGON).getElement(), new Dragon().getElement());
+		assertEquals(empty.getTypeFromElement(Element.DRAGON).getElement(), new Dragon().getElement());
 		
 	}
 	
 	@Test
 	public void getStrengthsTest(){
 		TypeSet empty = new TypeSet();
-		empty.addTypes(new Types[]{Types.DRAGON, Types.GHOST});
+		empty.addTypes(new Element[]{Element.DRAGON, Element.GHOST});
 		TypeSet str = empty.getStrengths();
-		assertTrue(empty.getTypes().contains(Types.DRAGON));
-		assertTrue(str.getTypes().contains(Types.PSYCHIC));
-		assertTrue(str.getTypes().contains(Types.GHOST));
+		assertTrue(empty.getTypes().contains(Element.DRAGON));
+		assertTrue(str.getTypes().contains(Element.PSYCHIC));
+		assertTrue(str.getTypes().contains(Element.GHOST));
 		assertEquals(str.getTypes().size(), 3);
 	}
 

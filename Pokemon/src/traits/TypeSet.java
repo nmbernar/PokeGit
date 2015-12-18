@@ -6,7 +6,7 @@ import elements.*;
 
 public class TypeSet {
 
-	private ArrayList<Enum<Types>> types = new ArrayList<Enum<Types>>();
+	private ArrayList<Element> types = new ArrayList<Element>();
 
 	/**
 	 * Initializes set with no types
@@ -20,7 +20,7 @@ public class TypeSet {
 	 * 
 	 * @param type
 	 */
-	public TypeSet(Enum<Types> type) {
+	public TypeSet(Element type) {
 		types.add(type);
 	}
 
@@ -29,8 +29,8 @@ public class TypeSet {
 	 * 
 	 * @param types
 	 */
-	public TypeSet(List<Enum<Types>> types) {
-		this.types = (ArrayList<Enum<Types>>) types;
+	public TypeSet(List<Element> types) {
+		this.types = (ArrayList<Element>) types;
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class TypeSet {
 	 * 
 	 * @param type
 	 */
-	public void addType(Enum<Types> type) {
+	public void addType(Element type) {
 		if (!typeInSet(type)) {
 			this.types.add(type);
 		}
@@ -50,9 +50,9 @@ public class TypeSet {
 	 * @param types2
 	 * @return defunct
 	 */
-	public int addTypes(Types[] types2) {
+	public int addTypes(Element[] types2) {
 		int added = 0;
-		for (Types type : types2) {
+		for (Element type : types2) {
 			if (!typeInSet(type)) {
 				addType(type);
 				added++;
@@ -62,12 +62,12 @@ public class TypeSet {
 		return added;
 	}
 
-	public boolean typeInSet(Enum<Types> type) {
+	public boolean typeInSet(Element type) {
 		if (this.types.size() == 0) {
 			return false;
 		}
 
-		for (Enum<Types> x : this.types) {
+		for (Element x : this.types) {
 			if (x == type) {
 				return true;
 			}
@@ -76,9 +76,9 @@ public class TypeSet {
 		return false;
 	}
 
-	public ArrayList<Enum<Types>> getTypes() {
-		ArrayList<Enum<Types>> gettypes = new ArrayList<Enum<Types>>();
-		for (Enum<Types> x : this.types) {
+	public ArrayList<Element> getTypes() {
+		ArrayList<Element> gettypes = new ArrayList<Element>();
+		for (Element x : this.types) {
 			gettypes.add(x);
 		}
 
@@ -88,15 +88,15 @@ public class TypeSet {
 	public TypeSet getStrengths() {
 		TypeSet strengths = new TypeSet();
 
-		for(Enum<Types> element : types){
-			Types[] singleEleStrs = this.getTypeFromElement(element).getStrengths();
+		for(Element element : types){
+			Element[] singleEleStrs = this.getTypeFromElement(element).getStrengths();
 			strengths.addTypes(singleEleStrs);
 		}
 		
 		return strengths;
 	}
 
-	public Type getTypeFromElement(Enum<Types> element) {
+	public Type getTypeFromElement(Element element) {
 		switch (element.toString()) {
 		case "BUG":
 			return new Bug();

@@ -1,17 +1,17 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Water extends Type{
 	public Water(){
-		this.setStrengths(new Types[]{Types.ROCK, 
-				Types.GROUND, Types.FIRE});
-		this.setWeaknesses(new Types[]{Types.ELECTRIC, 
-				Types.GRASS});
+		this.setStrengths(new Element[]{Element.ROCK, 
+				Element.GROUND, Element.FIRE});
+		this.setWeaknesses(new Element[]{Element.ELECTRIC, 
+				Element.GRASS});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.WATER;
+	public Enum<Element> getElement() {
+		return Element.WATER;
 	}
 }

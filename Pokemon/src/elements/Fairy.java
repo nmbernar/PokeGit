@@ -1,18 +1,18 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Fairy extends Type{
 	public Fairy(){
-		this.setStrengths(new Types[]{Types.FIGHTING, 
-				Types.DRAGON, Types.DARK});
-		this.setWeaknesses(new Types[]{Types.POISON, 
-				Types.STEEL});
-		this.setUnaffected(new Types[]{Types.DRAGON});
+		this.setStrengths(new Element[]{Element.FIGHTING, 
+				Element.DRAGON, Element.DARK});
+		this.setWeaknesses(new Element[]{Element.POISON, 
+				Element.STEEL});
+		this.setUnaffected(new Element[]{Element.DRAGON});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.FAIRY;
+	public Enum<Element> getElement() {
+		return Element.FAIRY;
 	}
 }

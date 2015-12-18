@@ -1,19 +1,19 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Steel extends Type{
 	public Steel(){
-		this.setStrengths(new Types[]{Types.ICE, 
-				Types.ROCK, Types.FAIRY
+		this.setStrengths(new Element[]{Element.ICE, 
+				Element.ROCK, Element.FAIRY
 		});
-		this.setWeaknesses(new Types[]{Types.FIGHTING, 
-				Types.FIRE, Types.GROUND});
-		this.setUnaffected(new Types[]{Types.POISON});
+		this.setWeaknesses(new Element[]{Element.FIGHTING, 
+				Element.FIRE, Element.GROUND});
+		this.setUnaffected(new Element[]{Element.POISON});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.STEEL;
+	public Enum<Element> getElement() {
+		return Element.STEEL;
 	}
 }

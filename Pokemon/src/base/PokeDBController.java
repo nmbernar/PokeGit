@@ -11,7 +11,7 @@ import traits.Pokemon;
 import elements.*;
 import traits.Type;
 import traits.TypeSet;
-import traits.Types;
+import traits.Element;
 
 public class PokeDBController {
 

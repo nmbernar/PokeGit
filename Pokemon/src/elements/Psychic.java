@@ -1,19 +1,19 @@
 package elements;
 import traits.Type;
-import traits.Types;
+import traits.Element;
 
 public class Psychic extends Type{
 	public Psychic(){
-		this.setStrengths(new Types[]{Types.FIGHTING, 
-				Types.POISON});
-		this.setWeaknesses(new Types[]{Types.BUG, 
-				Types.GHOST, Types.DARK});
-		this.setCantAffect(new Types[]{Types.DARK});
+		this.setStrengths(new Element[]{Element.FIGHTING, 
+				Element.POISON});
+		this.setWeaknesses(new Element[]{Element.BUG, 
+				Element.GHOST, Element.DARK});
+		this.setCantAffect(new Element[]{Element.DARK});
 	}
 
 	@Override
-	public Enum<Types> getElement() {
-		return Types.PSYCHIC;
+	public Enum<Element> getElement() {
+		return Element.PSYCHIC;
 	}
 	
 }
