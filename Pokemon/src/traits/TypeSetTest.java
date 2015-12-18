@@ -7,8 +7,6 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import elements.*;
-
 public class TypeSetTest {
 
 	@Test
@@ -19,10 +17,6 @@ public class TypeSetTest {
 	
 	@Test
 	public void typeNotInSetTest() {
-		ArrayList<Type> test = new ArrayList<Type>();
-		test.add(new Fire());
-		test.add(new Water());
-		test.add(new Ground());
 		TypeSet FireWaterGround = new TypeSet(new ArrayList<Element>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
 		assertFalse(FireWaterGround.typeInSet(Element.GRASS));
 	}
@@ -39,16 +33,9 @@ public class TypeSetTest {
 	}
 	
 	@Test
-	public void getTypeFromElementTest(){
-		TypeSet empty = new TypeSet();
-		assertEquals(empty.getTypeFromElement(Element.DRAGON).getElement(), new Dragon().getElement());
-		
-	}
-	
-	@Test
 	public void getStrengthsTest(){
 		TypeSet empty = new TypeSet();
-		empty.addTypes(new Element[]{Element.DRAGON, Element.GHOST});
+		empty.addTypes(new TypeSet(new ArrayList<>(Arrays.asList(Element.DRAGON, Element.GHOST))));
 		TypeSet str = empty.getStrengths();
 		assertTrue(empty.getTypes().contains(Element.DRAGON));
 		assertTrue(str.getTypes().contains(Element.PSYCHIC));

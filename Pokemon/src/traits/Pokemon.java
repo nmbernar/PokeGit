@@ -1,13 +1,10 @@
 package traits;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Pokemon {
 	private String name;
 	private int dexNumber;
-	private Type primaryType;
-	private Type secondaryType;
+	private Element primaryType;
+	private Element secondaryType;
 	private int total;
 	private int hp;
 	private int att;
@@ -16,7 +13,7 @@ public class Pokemon {
 	private int spdef;
 	private int spd;
 	
-	public Pokemon(String name, int num, Type type1, Type type2, int total, int hp, int att, int def, int spatt, int spdef, int spd){
+	public Pokemon(String name, int num, Element type1, Element type2, int total, int hp, int att, int def, int spatt, int spdef, int spd){
 		this.name = name;
 		this.dexNumber = num;
 		this.primaryType = type1;
@@ -55,22 +52,22 @@ public class Pokemon {
 	}
 
 
-	public Type getPrimaryType() {
+	public Element getPrimaryType() {
 		return primaryType;
 	}
 
 
-	public void setPrimaryType(Type primaryType) {
+	public void setPrimaryType(Element primaryType) {
 		this.primaryType = primaryType;
 	}
 
 
-	public Type getSecondaryType() {
+	public Element getSecondaryType() {
 		return secondaryType;
 	}
 
 
-	public void setSecondaryType(Type secondaryType) {
+	public void setSecondaryType(Element secondaryType) {
 		this.secondaryType = secondaryType;
 	}
 

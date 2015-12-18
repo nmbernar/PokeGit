@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import traits.Pokemon;
-import elements.*;
-import traits.Type;
 import traits.TypeSet;
 import traits.Element;
 
@@ -69,44 +67,44 @@ public class PokeDBController {
 		return null;
 	}
 
-	private Type convertStringType(String type) {
+	private Element convertStringType(String type) {
 		switch (type) {
 		case "Bug":
-			return new Bug();
+			return Element.BUG;
 		case "Dark":
-			return new Dark();
+			return Element.DARK;
 		case "Dragon":
-			return new Dragon();
+			return Element.DRAGON;
 		case "Electric":
-			return new Electric();
+			return Element.ELECTRIC;
 		case "Fairy":
-			return new Fairy();
+			return Element.FAIRY;
 		case "Fighting":
-			return new Fighting();
+			return Element.FIGHTING;
 		case "Fire":
-			return new Fire();
+			return Element.FIRE;
 		case "Flying":
-			return new Flying();
+			return Element.FLYING;
 		case "Ghost":
-			return new Ghost();
+			return Element.GHOST;
 		case "Grass":
-			return new Grass();
+			return Element.GRASS;
 		case "Ground":
-			return new Ground();
+			return Element.GROUND;
 		case "Ice":
-			return new Ice();
+			return Element.ICE;
 		case "Normal":
-			return new Normal();
+			return Element.NORMAL;
 		case "Poison":
-			return new Poison();
+			return Element.POISON;
 		case "Psychic":
-			return new Psychic();
+			return Element.PSYCHIC;
 		case "Rock":
-			return new Rock();
+			return Element.ROCK;
 		case "Steel":
-			return new Steel();
+			return Element.STEEL;
 		case "Water":
-			return new Water();
+			return Element.WATER;
 		default:
 			return null;
 		}

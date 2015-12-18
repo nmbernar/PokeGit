@@ -465,4 +465,48 @@ public enum Element {
 	 * @return TypeSet set of types
 	 */
 	public abstract TypeSet getCantAffect();
+	
+	public Element getElementFromString(String ele){
+		ele = ele.toUpperCase();
+		switch(ele){
+		case "BUG":
+			return Element.BUG;
+		case "DARK":
+			return Element.DARK;
+		case "DRAGON":
+			return Element.DRAGON;
+		case "ELECTRIC":
+			return Element.ELECTRIC;
+		case "FAIRY":
+			return Element.FAIRY;
+		case "FIGHTING":
+			return Element.FIGHTING;
+		case "FIRE":
+			return Element.FIRE;
+		case "FLYING":
+			return Element.FLYING;
+		case "GHOST":
+			return Element.GHOST;
+		case "GRASS":
+			return Element.GRASS;
+		case "GROUND":
+			return Element.GROUND;
+		case "ICE":
+			return Element.ICE;
+		case "NORMAL":
+			return Element.NORMAL;
+		case "POISON":
+			return Element.POISON;
+		case "PSYCHIC":
+			return Element.PSYCHIC;
+		case "ROCK":
+			return Element.ROCK;
+		case "STEEL":
+			return Element.STEEL;
+		case "Water":
+			return Element.WATER;
+		default:
+			return null;
+		}
+	}
 }

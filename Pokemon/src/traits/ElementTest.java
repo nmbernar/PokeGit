@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class TypeTest {
+public class ElementTest {
 
 	@Test
 	public void fireTest() {
