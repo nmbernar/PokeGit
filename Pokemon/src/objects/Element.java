@@ -465,10 +465,10 @@ public enum Element {
 	 * @return TypeSet set of types
 	 */
 	public abstract TypeSet getCantAffect();
-	
-	public Element getElementFromString(String ele){
+
+	public Element getElementFromString(String ele) {
 		ele = ele.toUpperCase();
-		switch(ele){
+		switch (ele) {
 		case "BUG":
 			return Element.BUG;
 		case "DARK":
@@ -503,7 +503,7 @@ public enum Element {
 			return Element.ROCK;
 		case "STEEL":
 			return Element.STEEL;
-		case "Water":
+		case "WATER":
 			return Element.WATER;
 		default:
 			return null;
