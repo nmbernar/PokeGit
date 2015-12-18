@@ -38,14 +38,14 @@ public abstract class Type {
 		this.cantaffect = cantaffect;
 	}
 
-	public boolean weakAgainst(Enum<Element> enum1) {
+	public boolean weakAgainst(Element enum1) {
 		for (Element i : this.weaknesses)
 			if (enum1.equals(i))
 				return true;
 		return false;
 	}
 
-	public boolean strongAgainst(Enum<Element> enum1) {
+	public boolean strongAgainst(Element enum1) {
 		for (Element i : this.strengths)
 			if (enum1.equals(i))
 				return true;

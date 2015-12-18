@@ -62,12 +62,12 @@ public class TypeSet {
 		return added;
 	}
 
-	public boolean typeInSet(Enum<Element> type) {
+	public boolean typeInSet(Element type) {
 		if (this.types.size() == 0) {
 			return false;
 		}
 
-		for (Enum<Element> x : this.types) {
+		for (Element x : this.types) {
 			if (x == type) {
 				return true;
 			}
@@ -76,9 +76,9 @@ public class TypeSet {
 		return false;
 	}
 
-	public ArrayList<Enum<Element>> getTypes() {
-		ArrayList<Enum<Element>> gettypes = new ArrayList<Enum<Element>>();
-		for (Enum<Element> x : this.types) {
+	public ArrayList<Element> getTypes() {
+		ArrayList<Element> gettypes = new ArrayList<Element>();
+		for (Element x : this.types) {
 			gettypes.add(x);
 		}
 
@@ -88,7 +88,7 @@ public class TypeSet {
 	public TypeSet getStrengths() {
 		TypeSet strengths = new TypeSet();
 
-		for(Enum<Element> element : types){
+		for(Element element : types){
 			Element[] singleEleStrs = this.getTypeFromElement(element).getStrengths();
 			strengths.addTypes(singleEleStrs);
 		}
@@ -96,7 +96,7 @@ public class TypeSet {
 		return strengths;
 	}
 
-	public Type getTypeFromElement(Enum<Element> element) {
+	public Type getTypeFromElement(Element element) {
 		switch (element.toString()) {
 		case "BUG":
 			return new Bug();
