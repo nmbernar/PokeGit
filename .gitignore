@@ -44,7 +44,9 @@ local.properties
 
 ### Java ###
 *.class
-Pokemon/bin/*/*.class
+Pokemon/bin/elements/*.class
+Pokemon/bin/base/*.class
+Pokemon/bin/traits/*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
