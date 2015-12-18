@@ -1,8 +1,7 @@
-package traits;
+package objects;
 
 import java.util.ArrayList;
 import java.util.List;
-import elements.*;
 
 public class TypeSet {
 
@@ -47,12 +46,12 @@ public class TypeSet {
 	/**
 	 * Adds multiple types to the TypeSet
 	 * 
-	 * @param types2
+	 * @param typeSet
 	 * @return defunct
 	 */
-	public int addTypes(Element[] types2) {
+	public int addTypes(TypeSet typeSet) {
 		int added = 0;
-		for (Element type : types2) {
+		for (Element type : typeSet.getTypes()) {
 			if (!typeInSet(type)) {
 				addType(type);
 				added++;
@@ -77,66 +76,17 @@ public class TypeSet {
 	}
 
 	public ArrayList<Element> getTypes() {
-		ArrayList<Element> gettypes = new ArrayList<Element>();
-		for (Element x : this.types) {
-			gettypes.add(x);
-		}
-
-		return gettypes;
+		return this.types;
 	}
 
 	public TypeSet getStrengths() {
 		TypeSet strengths = new TypeSet();
 
 		for(Element element : types){
-			Element[] singleEleStrs = this.getTypeFromElement(element).getStrengths();
-			strengths.addTypes(singleEleStrs);
+			strengths.addTypes(element.getStrengths());
 		}
 		
 		return strengths;
-	}
-
-	public Type getTypeFromElement(Element element) {
-		switch (element.toString()) {
-		case "BUG":
-			return new Bug();
-		case "DARK":
-			return new Dark();
-		case "DRAGON":
-			return new Dragon();
-		case "ELECTRIC":
-			return new Electric();
-		case "FAIRY":
-			return new Fairy();
-		case "FIGHTING":
-			return new Fighting();
-		case "FIRE":
-			return new Fire();
-		case "FLYING":
-			return new Flying();
-		case "GHOST":
-			return new Ghost();
-		case "GRASS":
-			return new Grass();
-		case "GROUND":
-			return new Ground();
-		case "ICE":
-			return new Ice();
-		case "NORMAL":
-			return new Normal();
-		case "POISON":
-			return new Poison();
-		case "PSYCHIC":
-			return new Psychic();
-		case "ROCK":
-			return new Rock();
-		case "STEEL":
-			return new Steel();
-		case "WATER":
-			return new Water();
-		default:
-			return null;
-		}
 	}
 
 }

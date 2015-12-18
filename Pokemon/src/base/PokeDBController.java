@@ -7,11 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import traits.Pokemon;
-import elements.*;
-import traits.Type;
-import traits.TypeSet;
-import traits.Element;
+import objects.Pokemon;
+import objects.TypeSet;
 
 public class PokeDBController {
 
@@ -38,7 +35,7 @@ public class PokeDBController {
 
 			ResultSet result = stmt.executeQuery();
 
-			poke = this.resultSetPokemon(result);
+			poke = new Pokemon(result);
 
 			result.close();
 
@@ -58,58 +55,5 @@ public class PokeDBController {
 		}
 
 		return types;
-	}
-
-	private Pokemon resultSetPokemon(ResultSet rs) throws SQLException {
-		if (rs.next()) {
-			return new Pokemon(rs.getString("name"), rs.getInt("dexnum"), this.convertStringType(rs.getString("ptype")),
-					this.convertStringType(rs.getString("stype")), rs.getInt("total"), rs.getInt("hp"),
-					rs.getInt("atk"), rs.getInt("def"), rs.getInt("spatk"), rs.getInt("spdef"), rs.getInt("spd"));
-		}
-		return null;
-	}
-
-	private Type convertStringType(String type) {
-		switch (type) {
-		case "Bug":
-			return new Bug();
-		case "Dark":
-			return new Dark();
-		case "Dragon":
-			return new Dragon();
-		case "Electric":
-			return new Electric();
-		case "Fairy":
-			return new Fairy();
-		case "Fighting":
-			return new Fighting();
-		case "Fire":
-			return new Fire();
-		case "Flying":
-			return new Flying();
-		case "Ghost":
-			return new Ghost();
-		case "Grass":
-			return new Grass();
-		case "Ground":
-			return new Ground();
-		case "Ice":
-			return new Ice();
-		case "Normal":
-			return new Normal();
-		case "Poison":
-			return new Poison();
-		case "Psychic":
-			return new Psychic();
-		case "Rock":
-			return new Rock();
-		case "Steel":
-			return new Steel();
-		case "Water":
-			return new Water();
-		default:
-			return null;
-		}
-
 	}
 }

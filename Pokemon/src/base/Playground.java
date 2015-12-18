@@ -2,11 +2,16 @@ package base;
 
 import java.util.ArrayList;
 
-import traits.Pokemon;
-import traits.TypeSet;
-import traits.Element;
+import objects.Element;
+import objects.Pokemon;
+import objects.TypeSet;
 
-public class SetTest {
+/**
+ * Class made for me to mess around with, not really going to be in final product
+ * @author Nicholli
+ *
+ */
+public class Playground {
 
 	public static void main(String[] args) {
 		PokeDBController db = new PokeDBController();

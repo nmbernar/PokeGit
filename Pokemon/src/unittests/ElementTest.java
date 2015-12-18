@@ -1,10 +1,12 @@
-package traits;
+package unittests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import objects.Element;
 
-public class TypeTest {
+
+public class ElementTest {
 
 	@Test
 	public void fireTest() {

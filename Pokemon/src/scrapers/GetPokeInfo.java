@@ -1,5 +1,5 @@
 //Get Pokemon information from this url: view-source:http://pokemondb.net/pokedex/all and put it in sql database/txt file
-package base;
+package scrapers;
 
 
 import java.io.IOException;
@@ -14,6 +14,8 @@ import java.util.HashMap;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+import base.DatabaseConnect;
 
 /*
  * Generates a MySQL database of every Pokemon in the game
