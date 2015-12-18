@@ -1,7 +1,9 @@
-package traits;
+package unittests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import objects.Element;
 
 
 public class ElementTest {

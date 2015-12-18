@@ -1,4 +1,4 @@
-package base;
+package scrapers;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,6 +12,8 @@ import java.util.HashMap;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
+import base.DatabaseConnect;
 
 public class GetPokeAbility {
 
