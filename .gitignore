@@ -44,7 +44,7 @@ local.properties
 
 ### Java ###
 *.class
-Pokemon/bin/*.class
+Pokemon/bin/*/*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
