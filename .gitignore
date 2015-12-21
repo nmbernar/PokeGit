@@ -59,3 +59,4 @@ hs_err_pid*
 
 #PokeGit Specific
 src/base/DatabaseConnect.java
+src/base/Playground.java

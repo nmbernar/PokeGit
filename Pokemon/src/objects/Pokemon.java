@@ -44,9 +44,9 @@ public class Pokemon {
 				this.secondaryType = e.getElementFromString(rs.getString("stype"));
 				this.total = rs.getInt("total");
 				this.hp = rs.getInt("hp");
-				this.att= rs.getInt("att");
+				this.att= rs.getInt("atk");
 				this.def = rs.getInt("def");
-				this.spatt = rs.getInt("spatt");
+				this.spatt = rs.getInt("spatk");
 				this.spdef = rs.getInt("spdef");
 				this.spd = rs.getInt("spd");
 				

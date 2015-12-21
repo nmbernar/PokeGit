@@ -45,15 +45,5 @@ public class PokeDBController {
 		return poke;
 	}
 
-	public TypeSet getStrengthsFromPokeTypes(ArrayList<Pokemon> pokes) {
-		TypeSet types = new TypeSet();
 
-		for (Pokemon p : pokes) {
-			types.addTypes(p.getPrimaryType().getStrengths());
-			if (p.getSecondaryType() != null)
-				types.addTypes(p.getSecondaryType().getStrengths());
-		}
-
-		return types;
-	}
 }
