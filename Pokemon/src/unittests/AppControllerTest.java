@@ -42,10 +42,20 @@ public class AppControllerTest {
 					Element.FIRE, Element.DRAGON)))));
 			
 		} catch (PokemonDoesNotExistException e) {
-			
 			e.printStackTrace();
 		}
 
+	}
+	
+	@Test
+	public void testGetStrengthsFromEmptyPokesTypes() {
+		ArrayList<Pokemon> pokes = new ArrayList<Pokemon>();
+		PokeAppController pac = new PokeAppController();
+		
+		TypeSet str = pac.getStrengthsFromPokeTypes(pokes);
+		
+		assertTrue(str.equals(new TypeSet()));
+		
 	}
 
 }
