@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+import exceptions.MoveDoesNotExistException;
+import objects.Move;
 import objects.Pokemon;
-import objects.TypeSet;
 
 public class PokeDBController {
 
@@ -45,5 +45,24 @@ public class PokeDBController {
 		return poke;
 	}
 
+	public Move getMoveFromName(String name) throws MoveDoesNotExistException {
+		Move mv = null;
+		
+		try {
+			stmt = this.connect.prepareStatement("select * from pokemon.moves where name = ?");
+			stmt.setString(1, name);
+			
+			ResultSet result = stmt.executeQuery();
+			
+			mv = new Move(result);
+			
+			result.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return mv;
+	}
 
 }
