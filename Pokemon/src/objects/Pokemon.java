@@ -3,6 +3,8 @@ package objects;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import exceptions.PokemonDoesNotExistException;
+
 public class Pokemon {
 	private String name;
 	private int dexNumber;
@@ -16,7 +18,7 @@ public class Pokemon {
 	private int spdef;
 	private int spd;
 
-	public Pokemon(ResultSet rs){
+	public Pokemon(ResultSet rs) throws PokemonDoesNotExistException{
 		Element e = Element.NORMAL; //sample element, not used for any actual element comparison
 		try {
 			if(rs.next()){
@@ -34,7 +36,7 @@ public class Pokemon {
 				
 			}
 		} catch (SQLException ex) {
-			ex.printStackTrace();
+			throw new PokemonDoesNotExistException();
 		}
 
 	}

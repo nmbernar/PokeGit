@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import exceptions.MoveDoesNotExistException;
+import exceptions.PokemonDoesNotExistException;
 import objects.Move;
 import objects.Pokemon;
 
@@ -26,7 +27,7 @@ public class PokeDBController {
 
 	}
 
-	public Pokemon getPokemonFromName(String name) {
+	public Pokemon getPokemonFromName(String name) throws PokemonDoesNotExistException {
 		Pokemon poke = null;
 
 		try {

@@ -89,4 +89,23 @@ public class TypeSet {
 		return strengths;
 	}
 
+	/**
+	 * Compares the contents of two TypeSets
+	 * @param set being compared to
+	 * @return true if the two TypeSets contain the same elements, ignoring order
+	 */
+	public boolean equals(TypeSet set){
+		ArrayList<Element> setTypes = set.getTypes();
+		if(this.types.size() != setTypes.size()){
+			return false;
+		}
+		
+		for(Element type : setTypes) {
+			if(!this.typeInSet(type)){
+				return false;
+			}
+		}
+		
+		return true;
+	}
 }
