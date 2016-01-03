@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import base.PokeDBController;
+import exceptions.MoveDoesNotExistException;
+import objects.Element;
 import objects.Move;
 
 public class MoveTest {
@@ -16,72 +18,70 @@ public class MoveTest {
 	public void setUp() throws Exception {
 		dbc = new PokeDBController();
 	}
-
+	
 	@Test
-	public void testMove() {
-		fail("Not yet implemented");
+	public void testMoveResultSetConstructor() {
+		try {
+			Move flamethrower = dbc.getMoveFromName("flamethrower");
+			assertNotNull(flamethrower);
+			assertEquals("Flamethrower", flamethrower.getName());
+			assertEquals(flamethrower.getPower(), 90);
+		} catch(MoveDoesNotExistException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
-	@Test
-	public void testMoveStandardConstructor() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMoveResultSet() {
-		Move flamethrower = dbc.getMoveFromName("flamethrower");
-		assertNotNull(flamethrower);
-		assertEquals(flamethrower.getName(), "Flamethrower");
-		assertEquals(flamethrower.getPower(), 90);
-	}
-
+	
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		try {
+			Move flamethrower = dbc.getMoveFromName("flamethrower");
+			assertEquals("Flamethrower", flamethrower.getName());
+		} catch (MoveDoesNotExistException e) {
+			e.printStackTrace();
+		}
+		
 	}
-
-	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
-	}
-
+	
 	@Test
 	public void testGetType() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetType() {
-		fail("Not yet implemented");
+		try {
+			Move bubble = dbc.getMoveFromName("Bubble");
+			assertEquals(Element.WATER, bubble.getType());
+		} catch (MoveDoesNotExistException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testGetCategory() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetCategory() {
-		fail("Not yet implemented");
+		try {
+			Move bubble = dbc.getMoveFromName("Bubble");
+			Move es = dbc.getMoveFromName("Extreme Speed");
+			Move cray = dbc.getMoveFromName("Confuse Ray");
+			assertEquals("Special", bubble.getCategory());
+			assertEquals("Physical", es.getCategory());
+			assertEquals("Status", cray.getCategory());
+		} catch (MoveDoesNotExistException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testGetPower() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetPower() {
-		fail("Not yet implemented");
+		try {
+			Move es = dbc.getMoveFromName("Extreme Speed");
+			Move cray = dbc.getMoveFromName("Confuse Ray");
+			
+			assertEquals(80, es.getPower());
+			assertEquals(0, cray.getPower());
+		} catch (MoveDoesNotExistException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testGetAcc() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetAcc() {
 		fail("Not yet implemented");
 	}
 
@@ -91,17 +91,7 @@ public class MoveTest {
 	}
 
 	@Test
-	public void testSetPp() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetDescript() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetDescript() {
 		fail("Not yet implemented");
 	}
 
@@ -111,18 +101,7 @@ public class MoveTest {
 	}
 
 	@Test
-	public void testSetProb() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetPriority() {
 		fail("Not yet implemented");
 	}
-
-	@Test
-	public void testSetPriority() {
-		fail("Not yet implemented");
-	}
-
 }

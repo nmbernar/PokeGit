@@ -13,19 +13,19 @@ import objects.TypeSet;
 public class TypeSetTest {
 
 	@Test
-	public void typeInSetTest() {
+	public void testTypeInSet() {
 		TypeSet onlyFire = new TypeSet(Element.FIRE);
 		assertTrue(onlyFire.typeInSet(Element.FIRE));
 	}
 	
 	@Test
-	public void typeNotInSetTest() {
+	public void testTypeNotInSet() {
 		TypeSet FireWaterGround = new TypeSet(new ArrayList<Element>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
 		assertFalse(FireWaterGround.typeInSet(Element.GRASS));
 	}
 	
 	@Test
-	public void addTypeTest(){
+	public void testAddType(){
 		TypeSet empty = new TypeSet();
 		empty.addType(Element.GRASS);
 		assertTrue(empty.getTypes().contains(Element.GRASS));
@@ -36,7 +36,7 @@ public class TypeSetTest {
 	}
 	
 	@Test
-	public void getStrengthsTest(){
+	public void testGetStrengths(){
 		TypeSet empty = new TypeSet();
 		empty.addTypes(new TypeSet(new ArrayList<>(Arrays.asList(Element.DRAGON, Element.GHOST))));
 		TypeSet str = empty.getStrengths();
