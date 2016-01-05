@@ -58,5 +58,5 @@ Pokemon/bin/*
 hs_err_pid*
 
 #PokeGit Specific
-src/base/DatabaseConnect.java
-src/base/Playground.java
+Pokemon/src/base/DatabaseConnect.java
+Pokemon/src/base/Playground.java

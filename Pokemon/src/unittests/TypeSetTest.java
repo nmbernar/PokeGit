@@ -7,43 +7,73 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import objects.Element;
+import objects.Type;
 import objects.TypeSet;
 
 public class TypeSetTest {
 
 	@Test
-	public void testTypeInSet() {
-		TypeSet onlyFire = new TypeSet(Element.FIRE);
-		assertTrue(onlyFire.typeInSet(Element.FIRE));
+	public void testContains() {
+		TypeSet onlyFire = new TypeSet(Type.FIRE);
+		assertTrue(onlyFire.contains(Type.FIRE));
 	}
 	
 	@Test
-	public void testTypeNotInSet() {
-		TypeSet FireWaterGround = new TypeSet(new ArrayList<Element>(Arrays.asList(Element.FIRE, Element.WATER, Element.GROUND)));
-		assertFalse(FireWaterGround.typeInSet(Element.GRASS));
+	public void testDoesNotContain() {
+		TypeSet FireWaterGround = new TypeSet(new ArrayList<Type>(Arrays.asList(Type.FIRE, Type.WATER, Type.GROUND)));
+		assertFalse(FireWaterGround.contains(Type.GRASS));
+	}
+	
+	@Test
+	public void testEmptyDoesNotContain() {
+		TypeSet empty = new TypeSet();
+		assertFalse(empty.contains(Type.GHOST));
 	}
 	
 	@Test
 	public void testAddType(){
 		TypeSet empty = new TypeSet();
-		empty.addType(Element.GRASS);
-		assertTrue(empty.getTypes().contains(Element.GRASS));
+		empty.addType(Type.GRASS);
+		assertTrue(empty.getTypes().contains(Type.GRASS));
 		
-		empty.addType(Element.DARK);
-		assertTrue(empty.getTypes().contains(Element.GRASS));
-		assertTrue(empty.getTypes().contains(Element.DARK));
+		empty.addType(Type.DARK);
+		assertTrue(empty.getTypes().contains(Type.GRASS));
+		assertTrue(empty.getTypes().contains(Type.DARK));
 	}
 	
 	@Test
 	public void testGetStrengths(){
 		TypeSet empty = new TypeSet();
-		empty.addTypes(new TypeSet(new ArrayList<>(Arrays.asList(Element.DRAGON, Element.GHOST))));
+		empty.addTypes(new ArrayList<>(Arrays.asList(Type.DRAGON, Type.GHOST)));
 		TypeSet str = empty.getStrengths();
-		assertTrue(empty.getTypes().contains(Element.DRAGON));
-		assertTrue(str.getTypes().contains(Element.PSYCHIC));
-		assertTrue(str.getTypes().contains(Element.GHOST));
+		assertTrue(empty.getTypes().contains(Type.DRAGON));
+		assertTrue(str.getTypes().contains(Type.PSYCHIC));
+		assertTrue(str.getTypes().contains(Type.GHOST));
 		assertEquals(str.getTypes().size(), 3);
+	}
+	
+	@Test
+	public void testEquals() {
+		TypeSet grdFireDragWater = new TypeSet(new ArrayList<>(Arrays.asList(Type.GROUND, Type.FIRE, Type.DRAGON, Type.WATER)));
+		TypeSet fireDragWaterDrg = new TypeSet(new ArrayList<>(Arrays.asList(Type.FIRE, Type.DRAGON, Type.WATER, Type.GROUND)));
+		
+		assertTrue(grdFireDragWater.equals(fireDragWaterDrg));
+	}
+	
+	@Test
+	public void testSizeDoesNotEqual() {
+		TypeSet grassBug = new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.BUG)));
+		TypeSet grass = new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS)));
+		
+		assertFalse(grassBug.equals(grass));
+	}
+	
+	@Test
+	public void testEmptyEquals() {
+		TypeSet empty1 = new TypeSet();
+		TypeSet empty2 = new TypeSet();
+		
+		assertTrue(empty1.equals(empty2));
 	}
 
 }

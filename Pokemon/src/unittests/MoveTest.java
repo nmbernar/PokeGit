@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import base.PokeDBController;
 import exceptions.MoveDoesNotExistException;
-import objects.Element;
+import objects.Type;
 import objects.Move;
 
 public class MoveTest {
@@ -47,7 +47,7 @@ public class MoveTest {
 	public void testGetType() {
 		try {
 			Move bubble = dbc.getMoveFromName("Bubble");
-			assertEquals(Element.WATER, bubble.getType());
+			assertEquals(Type.WATER, bubble.getType());
 		} catch (MoveDoesNotExistException e) {
 			System.out.println(e.getMessage());
 		}

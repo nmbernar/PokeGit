@@ -23,13 +23,13 @@ public class PokemonTeamTest {
 	public void testAdd() {
 		Pokemon kadabra;
 		try {
-			kadabra = (Pokemon) dbc.getPokemonFromName("kadabra", "N", "N");
+			kadabra = dbc.getPokemonFromName("kadabra", "N", "N").getFirst();
 			
 			PokemonTeam team = new PokemonTeam();
 			team.add(kadabra);
 			
 			assertEquals(1, team.getPokes().size());
-			assertEquals("Kadabra", team.getPokes().get(0).getName());
+			assertEquals("Kadabra", team.getFirst().getName());
 			
 		} catch (PokemonDoesNotExistException e) {
 			e.printStackTrace();
@@ -50,13 +50,13 @@ public class PokemonTeamTest {
 		PokemonTeam team = new PokemonTeam();
 		
 		try {
-			kadabra = (Pokemon) dbc.getPokemonFromName("kadabra", "N", "N");
-			ninjask = (Pokemon) dbc.getPokemonFromName("ninjask", "N", "N");
-			alakazam = (Pokemon) dbc.getPokemonFromName("alakazam", "N", "N");
-			voltorb = (Pokemon) dbc.getPokemonFromName("voltorb", "N", "N");
-			charizard = (Pokemon) dbc.getPokemonFromName("charizard", "N", "N");
-			eevee = (Pokemon) dbc.getPokemonFromName("eevee", "N", "N");
-			mewtwo = (Pokemon) dbc.getPokemonFromName("mewtwo", "N", "Y");
+			kadabra = dbc.getPokemonFromName("kadabra", "N", "N").getFirst();
+			ninjask = dbc.getPokemonFromName("ninjask", "N", "N").getFirst();
+			alakazam = dbc.getPokemonFromName("alakazam", "N", "N").getFirst();
+			voltorb = dbc.getPokemonFromName("voltorb", "N", "N").getFirst();
+			charizard = dbc.getPokemonFromName("charizard", "N", "N").getFirst();
+			eevee = dbc.getPokemonFromName("eevee", "N", "N").getFirst();
+			mewtwo = dbc.getPokemonFromName("mewtwo", "N", "Y").getFirst();
 			
 			team.add(kadabra);
 			team.add(ninjask);
@@ -83,7 +83,7 @@ public class PokemonTeamTest {
 		PokemonTeam team = new PokemonTeam();
 		
 		try {
-			umbreon = (Pokemon) dbc.getPokemonFromName("umbreon", "N", "N");
+			umbreon = dbc.getPokemonFromName("umbreon", "N", "N").getFirst();
 			
 			team.add(umbreon);
 			
@@ -103,7 +103,7 @@ public class PokemonTeamTest {
 	public void testContains() {
 		Pokemon kadabra;
 		try {
-			kadabra = (Pokemon) dbc.getPokemonFromName("Kadabra", "N", "N");
+			kadabra = dbc.getPokemonFromName("Kadabra", "N", "N").getFirst();
 			
 			PokemonTeam team = new PokemonTeam();
 			team.add(kadabra);

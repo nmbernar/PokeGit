@@ -8,7 +8,7 @@ import org.junit.Test;
 import base.PokeDBController;
 import exceptions.MoveDoesNotExistException;
 import exceptions.PokemonDoesNotExistException;
-import objects.Element;
+import objects.Type;
 import objects.Move;
 import objects.Pokemon;
 
@@ -24,11 +24,11 @@ public class DBControllerTest {
 	@Test
 	public void testGetPokemonFromName() {
 		try {
-			Pokemon chomp = (Pokemon) dbc.getPokemonFromName("Garchomp","N","N");
+			Pokemon chomp = dbc.getPokemonFromName("Garchomp","N","N").getFirst();
 			
 			assertNotNull(chomp);
 			assertEquals("Garchomp", chomp.getName());
-			assertEquals(Element.DRAGON, chomp.getPrimaryType());
+			assertEquals(Type.DRAGON, chomp.getPrimaryType());
 			
 		} catch (PokemonDoesNotExistException e) {
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class DBControllerTest {
 	public void testGetPokemonFromNoName() {
 		Pokemon empty = null;
 		try {
-			empty = (Pokemon) dbc.getPokemonFromName("","","");
+			empty = (Pokemon) dbc.getPokemonFromName("","","").getFirst();
 			
 		} catch (PokemonDoesNotExistException e) {
 			assertNull(empty);

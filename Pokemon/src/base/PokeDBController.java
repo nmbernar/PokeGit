@@ -12,6 +12,11 @@ import objects.Move;
 import objects.Pokemon;
 import objects.PokemonTeam;
 
+/**
+ * This class is used to represent the controller used to interface with the MySQL Database
+ * @author Nicholli
+ *
+ */
 public class PokeDBController {
 
 	DatabaseConnect db = null;
@@ -36,7 +41,7 @@ public class PokeDBController {
 	 * @return a single Pokemon or a team of Pokemon
 	 * @throws PokemonDoesNotExistException
 	 */
-	public Object getPokemonFromName(String name, String alt, String legend) throws PokemonDoesNotExistException {
+	public PokemonTeam getPokemonFromName(String name, String alt, String legend) throws PokemonDoesNotExistException {
 		Pokemon poke = null;
 		PokemonTeam team = new PokemonTeam();
 		
@@ -52,34 +57,43 @@ public class PokeDBController {
 			stmt.setString(3, legend);
 			
 			ResultSet result = stmt.executeQuery();
-			
-			//gets the number of rows in result
-			int rows = 0;
+
+			//Gets the number of rows in the result
+			int count = 0;
 			if(result.last()){
-				rows = result.getRow();
-				result.beforeFirst();
+				count = result.getRow();
+			} else {
+				count = 0;
 			}
 			
-			if(rows == 1){
-				poke = new Pokemon(result);
-				result.close();
-				return poke;
-			} else if(rows > 1){
-				while(result.next()) {
-					poke = new Pokemon(result);
-					team.add(poke);
-				}
-				result.close();
-				return team;
-			} else {
-				return null;
+			//reset to first
+			result.beforeFirst();
+			
+			if(count == 0){
+				throw new PokemonDoesNotExistException();
 			}
+
+			//Adds the Pokemon to the team
+			for(int i = 0; i < count; i++){
+				poke = new Pokemon(result);
+				team.add(poke);
+			}
+			
+			result.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		
+		return team;
 	}
 
+	/**
+	 * Gets details about a Move given a string of the Move's name
+	 * @param name Name of the desired Move
+	 * @return Move object, containing details about the Move itself
+	 * @throws MoveDoesNotExistException
+	 */
 	public Move getMoveFromName(String name) throws MoveDoesNotExistException {
 		Move mv = null;
 		
