@@ -12,6 +12,11 @@ import objects.Move;
 import objects.Pokemon;
 import objects.PokemonTeam;
 
+/**
+ * This class is used to represent the controller used to interface with the MySQL Database
+ * @author Nicholli
+ *
+ */
 public class PokeDBController {
 
 	DatabaseConnect db = null;
@@ -80,6 +85,12 @@ public class PokeDBController {
 		return null;
 	}
 
+	/**
+	 * Gets details about a Move given a string of the Move's name
+	 * @param name Name of the desired Move
+	 * @return Move object, containing details about the Move itself
+	 * @throws MoveDoesNotExistException
+	 */
 	public Move getMoveFromName(String name) throws MoveDoesNotExistException {
 		Move mv = null;
 		

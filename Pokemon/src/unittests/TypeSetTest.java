@@ -13,15 +13,21 @@ import objects.TypeSet;
 public class TypeSetTest {
 
 	@Test
-	public void testTypeInSet() {
+	public void testContains() {
 		TypeSet onlyFire = new TypeSet(Type.FIRE);
 		assertTrue(onlyFire.contains(Type.FIRE));
 	}
 	
 	@Test
-	public void testTypeNotInSet() {
+	public void testDoesNotContain() {
 		TypeSet FireWaterGround = new TypeSet(new ArrayList<Type>(Arrays.asList(Type.FIRE, Type.WATER, Type.GROUND)));
 		assertFalse(FireWaterGround.contains(Type.GRASS));
+	}
+	
+	@Test
+	public void testEmptyDoesNotContain() {
+		TypeSet empty = new TypeSet();
+		assertFalse(empty.contains(Type.GHOST));
 	}
 	
 	@Test
@@ -44,6 +50,30 @@ public class TypeSetTest {
 		assertTrue(str.getTypes().contains(Type.PSYCHIC));
 		assertTrue(str.getTypes().contains(Type.GHOST));
 		assertEquals(str.getTypes().size(), 3);
+	}
+	
+	@Test
+	public void testEquals() {
+		TypeSet grdFireDragWater = new TypeSet(new ArrayList<>(Arrays.asList(Type.GROUND, Type.FIRE, Type.DRAGON, Type.WATER)));
+		TypeSet fireDragWaterDrg = new TypeSet(new ArrayList<>(Arrays.asList(Type.FIRE, Type.DRAGON, Type.WATER, Type.GROUND)));
+		
+		assertTrue(grdFireDragWater.equals(fireDragWaterDrg));
+	}
+	
+	@Test
+	public void testSizeDoesNotEqual() {
+		TypeSet grassBug = new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.BUG)));
+		TypeSet grass = new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS)));
+		
+		assertFalse(grassBug.equals(grass));
+	}
+	
+	@Test
+	public void testEmptyEquals() {
+		TypeSet empty1 = new TypeSet();
+		TypeSet empty2 = new TypeSet();
+		
+		assertTrue(empty1.equals(empty2));
 	}
 
 }

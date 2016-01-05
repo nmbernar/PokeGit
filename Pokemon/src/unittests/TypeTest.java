@@ -6,10 +6,10 @@ import org.junit.Test;
 import objects.Type;
 
 
-public class ElementTest {
+public class TypeTest {
 
 	@Test
-	public void testFiew() {
+	public void testFire() {
 		Type fire = Type.FIRE;
 		assertTrue(fire.getStrengths().getTypes().contains(Type.ICE));
 		assertFalse(fire.getWeaknesses().getTypes().contains(Type.DARK));

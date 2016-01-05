@@ -19,7 +19,7 @@ public class Pokemon {
 	private int spd;
 
 	public Pokemon(ResultSet rs) throws PokemonDoesNotExistException{
-		Type e = Type.NORMAL; //sample element, not used for any actual element comparison
+		Type e = Type.NORMAL; //sample type, not used for any actual element comparison
 		try {
 			if(rs.next()){
 				this.name = rs.getString("name");
