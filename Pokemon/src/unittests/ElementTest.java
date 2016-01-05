@@ -3,30 +3,30 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import objects.Element;
+import objects.Type;
 
 
 public class ElementTest {
 
 	@Test
 	public void testFiew() {
-		Element fire = Element.FIRE;
-		assertTrue(fire.getStrengths().getTypes().contains(Element.ICE));
-		assertFalse(fire.getWeaknesses().getTypes().contains(Element.DARK));
+		Type fire = Type.FIRE;
+		assertTrue(fire.getStrengths().getTypes().contains(Type.ICE));
+		assertFalse(fire.getWeaknesses().getTypes().contains(Type.DARK));
 	}
 	
 	
 	public void testGhost(){
-		Element ghost = Element.GHOST;
-		assertTrue(ghost.getStrengths().getTypes().contains(Element.PSYCHIC));
-		assertTrue(ghost.getUnaffected().getTypes().contains(Element.NORMAL));
-		assertFalse(ghost.getWeaknesses().getTypes().contains(Element.FIGHTING));
+		Type ghost = Type.GHOST;
+		assertTrue(ghost.getStrengths().getTypes().contains(Type.PSYCHIC));
+		assertTrue(ghost.getUnaffected().getTypes().contains(Type.NORMAL));
+		assertFalse(ghost.getWeaknesses().getTypes().contains(Type.FIGHTING));
 	}
 
 	public void testPsychic(){
-		Element psychic = Element.PSYCHIC;
-		assertTrue(psychic.getStrengths().getTypes().contains(Element.BUG));
-		assertFalse(psychic.getWeaknesses().getTypes().contains(Element.WATER));
-		assertTrue(psychic.getCantAffect().getTypes().contains(Element.DARK));
+		Type psychic = Type.PSYCHIC;
+		assertTrue(psychic.getStrengths().getTypes().contains(Type.BUG));
+		assertFalse(psychic.getWeaknesses().getTypes().contains(Type.WATER));
+		assertTrue(psychic.getCantAffect().getTypes().contains(Type.DARK));
 	}
 }

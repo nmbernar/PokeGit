@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import base.PokeDBController;
 import exceptions.PokemonDoesNotExistException;
-import objects.Element;
+import objects.Type;
 import objects.Pokemon;
 
 public class PokemonTest {
@@ -68,7 +68,7 @@ public class PokemonTest {
 		try {
 			Pokemon fly = (Pokemon) dbc.getPokemonFromName("Flygon","N","N");
 			
-			assertEquals(Element.GROUND, fly.getPrimaryType());
+			assertEquals(Type.GROUND, fly.getPrimaryType());
 		} catch (PokemonDoesNotExistException e) {
 			e.printStackTrace();
 		}
@@ -79,7 +79,7 @@ public class PokemonTest {
 		try {
 			Pokemon murk = (Pokemon) dbc.getPokemonFromName("murkrow","N","N");
 			
-			assertEquals(Element.FLYING, murk.getSecondaryType());
+			assertEquals(Type.FLYING, murk.getSecondaryType());
 		} catch (PokemonDoesNotExistException e) {
 			e.printStackTrace();
 		}

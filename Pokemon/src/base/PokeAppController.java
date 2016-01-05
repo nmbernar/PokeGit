@@ -15,9 +15,9 @@ public class PokeAppController {
 		TypeSet types = new TypeSet();
 
 		for (Pokemon p : pokes) {
-			types.addTypes(p.getPrimaryType().getStrengths());
+			types.addTypes(p.getPrimaryType().getStrengths().getTypes());
 			if (p.getSecondaryType() != null)
-				types.addTypes(p.getSecondaryType().getStrengths());
+				types.addTypes(p.getSecondaryType().getStrengths().getTypes());
 		}
 
 		return types;

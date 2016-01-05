@@ -8,8 +8,8 @@ import exceptions.PokemonDoesNotExistException;
 public class Pokemon {
 	private String name;
 	private int dexNumber;
-	private Element primaryType;
-	private Element secondaryType;
+	private Type primaryType;
+	private Type secondaryType;
 	private int total;
 	private int hp;
 	private int att;
@@ -19,7 +19,7 @@ public class Pokemon {
 	private int spd;
 
 	public Pokemon(ResultSet rs) throws PokemonDoesNotExistException{
-		Element e = Element.NORMAL; //sample element, not used for any actual element comparison
+		Type e = Type.NORMAL; //sample element, not used for any actual element comparison
 		try {
 			if(rs.next()){
 				this.name = rs.getString("name");
@@ -49,11 +49,11 @@ public class Pokemon {
 		return dexNumber;
 	}
 
-	public Element getPrimaryType() {
+	public Type getPrimaryType() {
 		return primaryType;
 	}
 
-	public Element getSecondaryType() {
+	public Type getSecondaryType() {
 		return secondaryType;
 	}
 

@@ -3,14 +3,14 @@ package objects;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public enum Element {
+public enum Type {
 	FIRE {
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GRASS, Element.BUG, Element.STEEL, Element.ICE)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.BUG, Type.STEEL, Type.ICE)));
 		}
 
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GROUND, Element.ROCK, Element.WATER)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GROUND, Type.ROCK, Type.WATER)));
 		}
 
 		@Override
@@ -27,12 +27,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.ROCK, Element.GROUND, Element.FIRE)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.ROCK, Type.GROUND, Type.FIRE)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.ELECTRIC, Element.GRASS)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.ELECTRIC, Type.GRASS)));
 		}
 
 		@Override
@@ -51,13 +51,13 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.ROCK, Element.GROUND, Element.WATER)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.ROCK, Type.GROUND, Type.WATER)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
 			return new TypeSet(new ArrayList<>(
-					Arrays.asList(Element.BUG, Element.FIRE, Element.POISON, Element.FLYING, Element.ICE)));
+					Arrays.asList(Type.BUG, Type.FIRE, Type.POISON, Type.FLYING, Type.ICE)));
 		}
 
 		@Override
@@ -75,12 +75,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.WATER, Element.FLYING)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.WATER, Type.FLYING)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(Element.GROUND);
+			return new TypeSet(Type.GROUND);
 		}
 
 		@Override
@@ -91,7 +91,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.GROUND);
+			return new TypeSet(Type.GROUND);
 		}
 
 	},
@@ -99,17 +99,17 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GRASS, Element.FIGHTING, Element.BUG)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.FIGHTING, Type.BUG)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.ELECTRIC, Element.ICE, Element.ROCK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.ELECTRIC, Type.ICE, Type.ROCK)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
-			return new TypeSet(Element.GROUND);
+			return new TypeSet(Type.GROUND);
 		}
 
 		@Override
@@ -123,13 +123,13 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIRE, Element.ICE, Element.FLYING, Element.BUG)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIRE, Type.ICE, Type.FLYING, Type.BUG)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
 			return new TypeSet(new ArrayList<>(
-					Arrays.asList(Element.WATER, Element.GRASS, Element.FIGHTING, Element.STEEL, Element.GROUND)));
+					Arrays.asList(Type.WATER, Type.GRASS, Type.FIGHTING, Type.STEEL, Type.GROUND)));
 		}
 
 		@Override
@@ -149,17 +149,17 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.PSYCHIC, Element.GHOST)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.PSYCHIC, Type.GHOST)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GHOST, Element.DARK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GHOST, Type.DARK)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.NORMAL, Element.FIGHTING)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.NORMAL, Type.FIGHTING)));
 		}
 
 		@Override
@@ -172,12 +172,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GRASS, Element.PSYCHIC, Element.DARK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.PSYCHIC, Type.DARK)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIRE, Element.FLYING, Element.ROCK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIRE, Type.FLYING, Type.ROCK)));
 		}
 
 		@Override
@@ -202,7 +202,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(Element.FIGHTING);
+			return new TypeSet(Type.FIGHTING);
 		}
 
 		@Override
@@ -222,18 +222,18 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.ICE, Element.ROCK, Element.FAIRY)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.ICE, Type.ROCK, Type.FAIRY)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIGHTING, Element.FIRE, Element.GROUND)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIGHTING, Type.FIRE, Type.GROUND)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
 
-			return new TypeSet(Element.POISON);
+			return new TypeSet(Type.POISON);
 		}
 
 		@Override
@@ -248,12 +248,12 @@ public enum Element {
 		@Override
 		public TypeSet getStrengths() {
 			return new TypeSet(new ArrayList<>(
-					Arrays.asList(Element.NORMAL, Element.ICE, Element.ROCK, Element.DARK, Element.STEEL)));
+					Arrays.asList(Type.NORMAL, Type.ICE, Type.ROCK, Type.DARK, Type.STEEL)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FLYING, Element.PSYCHIC, Element.FAIRY)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FLYING, Type.PSYCHIC, Type.FAIRY)));
 		}
 
 		@Override
@@ -264,7 +264,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.GHOST);
+			return new TypeSet(Type.GHOST);
 		}
 
 	},
@@ -272,12 +272,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(Element.DRAGON);
+			return new TypeSet(Type.DRAGON);
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(Arrays.asList(Element.ICE, Element.DRAGON, Element.FAIRY));
+			return new TypeSet(Arrays.asList(Type.ICE, Type.DRAGON, Type.FAIRY));
 		}
 
 		@Override
@@ -287,7 +287,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.FAIRY);
+			return new TypeSet(Type.FAIRY);
 		}
 
 	},
@@ -295,17 +295,17 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIGHTING, Element.DRAGON, Element.DARK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIGHTING, Type.DRAGON, Type.DARK)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.POISON, Element.STEEL)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.POISON, Type.STEEL)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
-			return new TypeSet(Element.DRAGON);
+			return new TypeSet(Type.DRAGON);
 		}
 
 		@Override
@@ -319,17 +319,17 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.PSYCHIC, Element.GHOST)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.PSYCHIC, Type.GHOST)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIGHTING, Element.BUG, Element.FAIRY)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIGHTING, Type.BUG, Type.FAIRY)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
-			return new TypeSet(Element.PSYCHIC);
+			return new TypeSet(Type.PSYCHIC);
 		}
 
 		@Override
@@ -343,13 +343,13 @@ public enum Element {
 		@Override
 		public TypeSet getStrengths() {
 			return new TypeSet(
-					new ArrayList<>(Arrays.asList(Element.GRASS, Element.GROUND, Element.FLYING, Element.DRAGON)));
+					new ArrayList<>(Arrays.asList(Type.GRASS, Type.GROUND, Type.FLYING, Type.DRAGON)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
 			return new TypeSet(
-					new ArrayList<>(Arrays.asList(Element.FIRE, Element.FIGHTING, Element.ROCK, Element.STEEL)));
+					new ArrayList<>(Arrays.asList(Type.FIRE, Type.FIGHTING, Type.ROCK, Type.STEEL)));
 		}
 
 		@Override
@@ -370,22 +370,22 @@ public enum Element {
 		@Override
 		public TypeSet getStrengths() {
 			return new TypeSet(new ArrayList<>(
-					Arrays.asList(Element.FIRE, Element.ELECTRIC, Element.POISON, Element.ROCK, Element.STEEL)));
+					Arrays.asList(Type.FIRE, Type.ELECTRIC, Type.POISON, Type.ROCK, Type.STEEL)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.WATER, Element.GRASS, Element.ICE)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.WATER, Type.GRASS, Type.ICE)));
 		}
 
 		@Override
 		public TypeSet getUnaffected() {
-			return new TypeSet(Element.ELECTRIC);
+			return new TypeSet(Type.ELECTRIC);
 		}
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.FLYING);
+			return new TypeSet(Type.FLYING);
 		}
 
 	},
@@ -393,12 +393,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.FIGHTING, Element.POISON)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.FIGHTING, Type.POISON)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.BUG, Element.GHOST, Element.DARK)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.BUG, Type.GHOST, Type.DARK)));
 		}
 
 		@Override
@@ -408,7 +408,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.DARK);
+			return new TypeSet(Type.DARK);
 		}
 
 	},
@@ -416,12 +416,12 @@ public enum Element {
 
 		@Override
 		public TypeSet getStrengths() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GRASS, Element.FAIRY)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GRASS, Type.FAIRY)));
 		}
 
 		@Override
 		public TypeSet getWeaknesses() {
-			return new TypeSet(new ArrayList<>(Arrays.asList(Element.GROUND, Element.PSYCHIC)));
+			return new TypeSet(new ArrayList<>(Arrays.asList(Type.GROUND, Type.PSYCHIC)));
 		}
 
 		@Override
@@ -432,7 +432,7 @@ public enum Element {
 
 		@Override
 		public TypeSet getCantAffect() {
-			return new TypeSet(Element.STEEL);
+			return new TypeSet(Type.STEEL);
 		}
 
 	};
@@ -466,45 +466,45 @@ public enum Element {
 	 */
 	public abstract TypeSet getCantAffect();
 
-	public Element getElementFromString(String ele) {
+	public Type getElementFromString(String ele) {
 		ele = ele.toUpperCase();
 		switch (ele) {
 		case "BUG":
-			return Element.BUG;
+			return Type.BUG;
 		case "DARK":
-			return Element.DARK;
+			return Type.DARK;
 		case "DRAGON":
-			return Element.DRAGON;
+			return Type.DRAGON;
 		case "ELECTRIC":
-			return Element.ELECTRIC;
+			return Type.ELECTRIC;
 		case "FAIRY":
-			return Element.FAIRY;
+			return Type.FAIRY;
 		case "FIGHTING":
-			return Element.FIGHTING;
+			return Type.FIGHTING;
 		case "FIRE":
-			return Element.FIRE;
+			return Type.FIRE;
 		case "FLYING":
-			return Element.FLYING;
+			return Type.FLYING;
 		case "GHOST":
-			return Element.GHOST;
+			return Type.GHOST;
 		case "GRASS":
-			return Element.GRASS;
+			return Type.GRASS;
 		case "GROUND":
-			return Element.GROUND;
+			return Type.GROUND;
 		case "ICE":
-			return Element.ICE;
+			return Type.ICE;
 		case "NORMAL":
-			return Element.NORMAL;
+			return Type.NORMAL;
 		case "POISON":
-			return Element.POISON;
+			return Type.POISON;
 		case "PSYCHIC":
-			return Element.PSYCHIC;
+			return Type.PSYCHIC;
 		case "ROCK":
-			return Element.ROCK;
+			return Type.ROCK;
 		case "STEEL":
-			return Element.STEEL;
+			return Type.STEEL;
 		case "WATER":
-			return Element.WATER;
+			return Type.WATER;
 		default:
 			return null;
 		}

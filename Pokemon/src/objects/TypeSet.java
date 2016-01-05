@@ -3,12 +3,20 @@ package objects;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents a grouping of Types.<br>
+ * This grouping considers the order of Types to be irrelevant to the uniqueness
+ * of the grouping.
+ * 
+ * @author Nicholli
+ *
+ */
 public class TypeSet {
 
-	private ArrayList<Element> types = new ArrayList<Element>();
+	private ArrayList<Type> types = new ArrayList<Type>();
 
 	/**
-	 * Initializes set with no types
+	 * Initializes set with zero types
 	 */
 	public TypeSet() {
 
@@ -18,8 +26,9 @@ public class TypeSet {
 	 * Initializes set with one type
 	 * 
 	 * @param type
+	 *            Type to be added along with the initialization of the TypeSet
 	 */
-	public TypeSet(Element type) {
+	public TypeSet(Type type) {
 		types.add(type);
 	}
 
@@ -27,32 +36,33 @@ public class TypeSet {
 	 * Initializes set with a TypeSet of types
 	 * 
 	 * @param types
+	 *            Types to be added along with the initialization of the TypeSet
 	 */
-	public TypeSet(List<Element> types) {
-		this.types = (ArrayList<Element>) types;
+	public TypeSet(List<Type> types) {
+		this.types = (ArrayList<Type>) types;
 	}
 
 	/**
 	 * Adds a single type to the TypeSet
 	 * 
 	 * @param type
+	 *            Type to be added to the TypeSet
 	 */
-	public void addType(Element type) {
-		if (!typeInSet(type)) {
+	public void addType(Type type) {
+		if (!contains(type)) {
 			this.types.add(type);
 		}
 	}
 
 	/**
 	 * Adds multiple types to the TypeSet
-	 * 
-	 * @param typeSet
-	 * @return returns the number of types added to the TypeSet
+	 * @param addedTypes Types to be added
+	 * @return number of types added
 	 */
-	public int addTypes(TypeSet typeSet) {
+	public int addTypes(List<Type> addedTypes) {
 		int added = 0;
-		for (Element type : typeSet.getTypes()) {
-			if (!typeInSet(type)) {
+		for (Type type : addedTypes) {
+			if (!contains(type)) {
 				addType(type);
 				added++;
 			}
@@ -61,12 +71,17 @@ public class TypeSet {
 		return added;
 	}
 
-	public boolean typeInSet(Element type) {
+	/**
+	 * Determines whether or not the provided Type is already in the TypeSet
+	 * @param type Type to check against the TypeSet
+	 * @return true if it is in the TypeSet, false otherwise
+	 */
+	public boolean contains(Type type) {
 		if (this.types.size() == 0) {
 			return false;
 		}
 
-		for (Element x : this.types) {
+		for (Type x : this.types) {
 			if (x == type) {
 				return true;
 			}
@@ -75,37 +90,48 @@ public class TypeSet {
 		return false;
 	}
 
-	public ArrayList<Element> getTypes() {
+	/**
+	 * Gets the Types in an ArrayList
+	 * @return An ArrayList of the Types in TypeSet
+	 */
+	public ArrayList<Type> getTypes() {
 		return this.types;
 	}
 
+	/**
+	 * Gets all of the Types the particular TypeSet is strong against
+	 * @return TypeSet of Types that are weak against the original TypeSet
+	 */
 	public TypeSet getStrengths() {
 		TypeSet strengths = new TypeSet();
 
-		for(Element element : types){
-			strengths.addTypes(element.getStrengths());
+		for (Type element : types) {
+			strengths.addTypes(element.getStrengths().getTypes());
 		}
-		
+
 		return strengths;
 	}
 
 	/**
 	 * Compares the contents of two TypeSets
-	 * @param set being compared to
-	 * @return true if the two TypeSets contain the same elements, ignoring order
+	 * 
+	 * @param set
+	 *            being compared to
+	 * @return true if the two TypeSets contain the same elements, ignoring
+	 *         order
 	 */
-	public boolean equals(TypeSet set){
-		ArrayList<Element> setTypes = set.getTypes();
-		if(this.types.size() != setTypes.size()){
+	public boolean equals(TypeSet set) {
+		ArrayList<Type> setTypes = set.getTypes();
+		if (this.types.size() != setTypes.size()) {
 			return false;
 		}
-		
-		for(Element type : setTypes) {
-			if(!this.typeInSet(type)){
+
+		for (Type type : setTypes) {
+			if (!this.contains(type)) {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 }

@@ -8,7 +8,7 @@ import exceptions.MoveDoesNotExistException;
 public class Move {
 	
 	private String name;
-	private Element type;
+	private Type type;
 	private String category;
 	private int power;
 	private int acc;
@@ -18,7 +18,7 @@ public class Move {
 	private int priority;
 	
 	public Move(ResultSet rs) throws MoveDoesNotExistException {
-		Element e = Element.NORMAL;
+		Type e = Type.NORMAL;
 		
 		try {
 			if(rs.next()) {
@@ -42,7 +42,7 @@ public class Move {
 		return name;
 	}
 
-	public Element getType() {
+	public Type getType() {
 		return type;
 	}
 
