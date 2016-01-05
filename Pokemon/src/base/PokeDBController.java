@@ -10,6 +10,7 @@ import exceptions.MoveDoesNotExistException;
 import exceptions.PokemonDoesNotExistException;
 import objects.Move;
 import objects.Pokemon;
+import objects.PokemonTeam;
 
 public class PokeDBController {
 
@@ -27,23 +28,56 @@ public class PokeDBController {
 
 	}
 
-	public Pokemon getPokemonFromName(String name) throws PokemonDoesNotExistException {
+	/**
+	 * Gets a or multiple Pokemon searching based on name, and flags altform and legend
+	 * @param name name of Pokemon to search for
+	 * @param alt "Y" if include alternate forms in search, "N" to leave them out, blank for both
+	 * @param legend "Y" if include legendaries in search, "N" to leave them out, blank for both
+	 * @return a single Pokemon or a team of Pokemon
+	 * @throws PokemonDoesNotExistException
+	 */
+	public Object getPokemonFromName(String name, String alt, String legend) throws PokemonDoesNotExistException {
 		Pokemon poke = null;
+		PokemonTeam team = new PokemonTeam();
+		
+		if(name.length() != 0) { name = '%'+name+'%'; }
+		if(alt.length() != 0) { alt = '%'+alt; }
+		if(legend.length() != 0) { legend = '%'+legend; }
+
 
 		try {
-			stmt = this.connect.prepareStatement("select * from pokemon.pokes where name = ?");
+			stmt = this.connect.prepareStatement("select * from pokemon.pokes where name like ? and altform like ? and legend like ?");
 			stmt.setString(1, name);
-
+			stmt.setString(2, alt);
+			stmt.setString(3, legend);
+			
 			ResultSet result = stmt.executeQuery();
-
-			poke = new Pokemon(result);
-
-			result.close();
-
+			
+			//gets the number of rows in result
+			int rows = 0;
+			if(result.last()){
+				rows = result.getRow();
+				result.beforeFirst();
+			}
+			
+			if(rows == 1){
+				poke = new Pokemon(result);
+				result.close();
+				return poke;
+			} else if(rows > 1){
+				while(result.next()) {
+					poke = new Pokemon(result);
+					team.add(poke);
+				}
+				result.close();
+				return team;
+			} else {
+				return null;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return poke;
+		return null;
 	}
 
 	public Move getMoveFromName(String name) throws MoveDoesNotExistException {
