@@ -22,7 +22,7 @@ public class PokemonTest {
 	@Test
 	public void testPokemon() {
 		try {
-			Pokemon pika = (Pokemon) dbc.getPokemonFromName("Pikachu","N","N");
+			Pokemon pika = dbc.getPokemonFromName("Pikachu","N","N").getFirst();
 			
 			assertNotNull(pika);
 		} catch (PokemonDoesNotExistException e) {
@@ -34,7 +34,7 @@ public class PokemonTest {
 	public void testNotAPokemon() {
 		Pokemon simpson = null;
 		try {
-			simpson = (Pokemon) dbc.getPokemonFromName("Simpson","","");
+			simpson = dbc.getPokemonFromName("Simpson","","").getFirst();
 			
 		} catch (PokemonDoesNotExistException e) {
 			assertNull(simpson);
@@ -44,7 +44,7 @@ public class PokemonTest {
 	@Test
 	public void testGetName() {
 		try {
-			Pokemon tyrant = (Pokemon) dbc.getPokemonFromName("Tyranitar","N","N");
+			Pokemon tyrant = dbc.getPokemonFromName("Tyranitar","N","N").getFirst();
 			
 			assertEquals("Tyranitar", tyrant.getName());
 		} catch (PokemonDoesNotExistException e) {
@@ -55,7 +55,7 @@ public class PokemonTest {
 	@Test
 	public void testGetDexNumber() {
 		try {
-			Pokemon mew = (Pokemon) dbc.getPokemonFromName("mewtwo","N","Y");
+			Pokemon mew = dbc.getPokemonFromName("mewtwo","N","Y").getFirst();
 			
 			assertEquals(150, mew.getDexNumber());
 		} catch (PokemonDoesNotExistException e) {
@@ -66,7 +66,7 @@ public class PokemonTest {
 	@Test
 	public void testGetPrimaryType() {
 		try {
-			Pokemon fly = (Pokemon) dbc.getPokemonFromName("Flygon","N","N");
+			Pokemon fly = dbc.getPokemonFromName("Flygon","N","N").getFirst();
 			
 			assertEquals(Type.GROUND, fly.getPrimaryType());
 		} catch (PokemonDoesNotExistException e) {
@@ -77,7 +77,7 @@ public class PokemonTest {
 	@Test
 	public void testGetSecondaryType() {
 		try {
-			Pokemon murk = (Pokemon) dbc.getPokemonFromName("murkrow","N","N");
+			Pokemon murk = dbc.getPokemonFromName("murkrow","N","N").getFirst();
 			
 			assertEquals(Type.FLYING, murk.getSecondaryType());
 		} catch (PokemonDoesNotExistException e) {
@@ -88,7 +88,7 @@ public class PokemonTest {
 	@Test
 	public void testGetTotal() {
 		try {
-			Pokemon goo = (Pokemon) dbc.getPokemonFromName("Goodra","N","N");
+			Pokemon goo = dbc.getPokemonFromName("Goodra","N","N").getFirst();
 			
 			assertEquals(600, goo.getTotal());
 		} catch (PokemonDoesNotExistException e) {
@@ -99,7 +99,7 @@ public class PokemonTest {
 	@Test
 	public void testGetHp() {
 		try {
-			Pokemon oct = (Pokemon) dbc.getPokemonFromName("Octillery","N","N");
+			Pokemon oct = dbc.getPokemonFromName("Octillery","N","N").getFirst();
 			
 			assertEquals(75, oct.getHp());
 		} catch (PokemonDoesNotExistException e) {
@@ -110,7 +110,7 @@ public class PokemonTest {
 	@Test
 	public void testGetAtt() {
 		try {
-			Pokemon nite = (Pokemon) dbc.getPokemonFromName("Dragonite","N","N");
+			Pokemon nite = dbc.getPokemonFromName("Dragonite","N","N").getFirst();
 			
 			assertEquals(134, nite.getAtt());
 		} catch (PokemonDoesNotExistException e) {
@@ -121,7 +121,7 @@ public class PokemonTest {
 	@Test
 	public void testGetDef() {
 		try {
-			Pokemon golem = (Pokemon) dbc.getPokemonFromName("Golem","N","N");
+			Pokemon golem = dbc.getPokemonFromName("Golem","N","N").getFirst();
 			
 			assertEquals(130, golem.getDef());
 		} catch (PokemonDoesNotExistException e) {
@@ -132,7 +132,7 @@ public class PokemonTest {
 	@Test
 	public void testGetSpatt() {
 		try {
-			Pokemon chand = (Pokemon) dbc.getPokemonFromName("Chandelure","N","N");
+			Pokemon chand = dbc.getPokemonFromName("Chandelure","N","N").getFirst();
 			
 			assertEquals(145, chand.getSpatt());
 		} catch (PokemonDoesNotExistException e) {
@@ -143,7 +143,7 @@ public class PokemonTest {
 	@Test
 	public void testGetSpdef() {
 		try {
-			Pokemon del = (Pokemon) dbc.getPokemonFromName("Delphox","N","N");
+			Pokemon del = dbc.getPokemonFromName("Delphox","N","N").getFirst();
 			
 			assertEquals(100, del.getSpdef());
 		} catch (PokemonDoesNotExistException e) {
@@ -154,7 +154,7 @@ public class PokemonTest {
 	@Test
 	public void testGetSpd() {
 		try {
-			Pokemon ferro = (Pokemon) dbc.getPokemonFromName("Ferrothorn","N","N");
+			Pokemon ferro = dbc.getPokemonFromName("Ferrothorn","N","N").getFirst();
 			
 			assertEquals(20, ferro.getSpd());
 		} catch (PokemonDoesNotExistException e) {

@@ -81,4 +81,12 @@ public class PokemonTeam {
 		
 		return true;
 	}
+	
+	/**
+	 * Gets the first Pokemon on the PokemonTeam
+	 * @return
+	 */
+	public Pokemon getFirst(){
+		return this.pokes.get(0);
+	}
 }
