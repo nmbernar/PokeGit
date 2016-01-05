@@ -1,15 +1,20 @@
-This is PokeGit.
+This is PokeGit. This was originally designed to practice some webscraping with Java, but I figured since I have the data, might as well do something with it.
 
-This project was designed not as an actual application, but as a way for me to practice gathering and storing information.
-So it should really be named PokeGitMySQL.
+The front end web stuff hasn't been developed yet, so this project isn't really usuable at the moment.
 
-To use, input database username, password, and url into the DatabaseConnect class, and set up some tables according to what is in pokemon_moves.sql and pokemon_pokes.sql. Download and add jsoup-1.8.3.jar and add that to your build path. I use that library to grab the data from the websites.
+To use, input database username, password, and url into the DatabaseConnect class, and run the latest sql file in the sql folder. The files are dated in the format mm/dd/yyyy, so be sure to run the latest one.
 
-Or if you just want to use the sql data directly, go ahead and import it. 
+The folders are grouped as follows:
 
-The latest branch has basically rendered all the other packages and classes useless except for:
- - DatabaseConnect
- - GetPokeInfo
- - GetPokeMoves
- 
-I'll keep everything else in there, in case I want to retrieve the data for whatever reason. 
+- base
+  - This is where the controllers live, as well as the base database class.
+- exceptions
+  - This is where the exceptions live.
+- objects
+  - This is where the entities live. Entity such as a single Pokemon (denoted by the Pokemon class) or multiple Pokemon (denoted by the PokemonTeam class) are here.
+- scrapers
+  - These are the scrapers that I used to get the bulk of my data. I don't use them anymore since I have all the data I need. (And because pokemondb doesn't like it when you scrape from their website)
+- unittests
+  - These are my unit tests. They are all functional except for the ones that I don't expect to use anytime soon. 
+
+If you just want the data about Pokemon, feel free to just grab the dataset file. 
