@@ -24,7 +24,7 @@ public class DBControllerTest {
 	@Test
 	public void testGetPokemonFromName() {
 		try {
-			Pokemon chomp = dbc.getPokemonFromName("Garchomp","N","N");
+			Pokemon chomp = (Pokemon) dbc.getPokemonFromName("Garchomp","N","N");
 			
 			assertNotNull(chomp);
 			assertEquals("Garchomp", chomp.getName());
@@ -40,7 +40,7 @@ public class DBControllerTest {
 	public void testGetPokemonFromNoName() {
 		Pokemon empty = null;
 		try {
-			empty = dbc.getPokemonFromName("","N","N");
+			empty = (Pokemon) dbc.getPokemonFromName("","","");
 			
 		} catch (PokemonDoesNotExistException e) {
 			assertNull(empty);
