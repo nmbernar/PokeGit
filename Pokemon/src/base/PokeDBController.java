@@ -27,12 +27,18 @@ public class PokeDBController {
 
 	}
 
-	public Pokemon getPokemonFromName(String name) throws PokemonDoesNotExistException {
+	public Pokemon getPokemonFromName(String name, String alt, String legend) throws PokemonDoesNotExistException {
 		Pokemon poke = null;
+		
+		name = '%'+name+'%';
+		alt = '%'+alt;
+		legend = '%'+legend;
 
 		try {
-			stmt = this.connect.prepareStatement("select * from pokemon.pokes where name = ?");
+			stmt = this.connect.prepareStatement("select * from pokemon.pokes where name like ? and altform like ? and legend like ?");
 			stmt.setString(1, name);
+			stmt.setString(2, alt);
+			stmt.setString(3, legend);
 
 			ResultSet result = stmt.executeQuery();
 

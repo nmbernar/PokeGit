@@ -30,9 +30,9 @@ public class AppControllerTest {
 		PokeAppController pac = new PokeAppController();
 		
 		try {
-			pokes.add(dbc.getPokemonFromName("Charizard"));
-			pokes.add(dbc.getPokemonFromName("Raichu"));
-			pokes.add(dbc.getPokemonFromName("Lapras"));
+			pokes.add(dbc.getPokemonFromName("Charizard","N","N"));
+			pokes.add(dbc.getPokemonFromName("Raichu","N","N"));
+			pokes.add(dbc.getPokemonFromName("Lapras","N","N"));
 			
 			TypeSet str = pac.getStrengthsFromPokeTypes(pokes);
 			

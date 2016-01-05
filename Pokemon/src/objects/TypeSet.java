@@ -47,7 +47,7 @@ public class TypeSet {
 	 * Adds multiple types to the TypeSet
 	 * 
 	 * @param typeSet
-	 * @return defunct
+	 * @return returns the number of types added to the TypeSet
 	 */
 	public int addTypes(TypeSet typeSet) {
 		int added = 0;
