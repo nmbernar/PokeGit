@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import exceptions.MoveDoesNotExistException;
 import exceptions.PokemonDoesNotExistException;
@@ -112,6 +113,18 @@ public class PokeDBController {
 		}
 		
 		return mv;
+	}
+	
+	/**
+	 * Searches for Pokemon based upon the criteria passed in (will replace getPokemonFromName when operational)
+	 * @param criteria Criteria to base search upon
+	 * @param alt "Y" if include alternate forms in search, "N" to leave them out, blank for both
+	 * @param legend "Y" if include legendaries in search, "N" to leave them out, blank for both
+	 * @return 
+	 */
+	public PokemonTeam findPokemon(List<String> criteria, String alt, String legend){
+
+		return null;
 	}
 
 }

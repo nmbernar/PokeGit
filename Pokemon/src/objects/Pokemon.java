@@ -33,7 +33,6 @@ public class Pokemon {
 				this.spatt = rs.getInt("spatk");
 				this.spdef = rs.getInt("spdef");
 				this.spd = rs.getInt("spd");
-				
 			}
 		} catch (SQLException ex) {
 			throw new PokemonDoesNotExistException();
